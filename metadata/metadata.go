@@ -1,4 +1,4 @@
-package goapi_metadata
+package metadata
 
 import (
 	"github.com/bytedance/kldx-metadata/object"

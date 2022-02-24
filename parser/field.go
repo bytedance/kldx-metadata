@@ -1,10 +1,8 @@
 package parser
 
 import (
-	"encoding/json"
-	"fmt"
+	"github.com/bytedance/kldx-common/utils"
 	"github.com/bytedance/kldx-metadata/common/constants"
-	"github.com/bytedance/kldx-metadata/common/utils"
 	"github.com/bytedance/kldx-metadata/object/fields"
 	"github.com/bytedance/kldx-metadata/structs"
 )
@@ -409,13 +407,13 @@ func ParseField(f *structs.Field) (res interface{}, err error) {
 }
 
 func ParseFields(fs []*structs.Field) (res map[string]interface{}, err error) {
-	//
-	ress := make([]interface{}, len(fs))
-	for i, f := range fs {
-		ress[i], err = ParseField(f)
-	}
-	marshall, _ := json.Marshal(ress)
-	fmt.Println(string(marshall))
+	////
+	//ress := make([]interface{}, len(fs))
+	//for i, f := range fs {
+	//	ress[i], err = ParseField(f)
+	//}
+	//marshall, _ := json.Marshal(ress)
+	//fmt.Println(string(marshall))
 
 	res = make(map[string]interface{}, len(fs))
 	var tmp interface{}

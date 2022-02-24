@@ -1,7 +1,7 @@
 package object
 
 import (
-	"github.com/bytedance/kldx-metadata/common/utils"
+	"github.com/bytedance/kldx-common/utils"
 	"github.com/bytedance/kldx-metadata/http/openapi"
 )
 

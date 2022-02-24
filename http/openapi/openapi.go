@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	cExceptions "github.com/bytedance/kldx-common/exceptions"
 	cHttp "github.com/bytedance/kldx-common/http"
-	"github.com/bytedance/kldx-metadata/common/utils"
 	"github.com/bytedance/kldx-metadata/http"
 	"github.com/bytedance/kldx-metadata/parser"
 	"github.com/bytedance/kldx-metadata/structs"
@@ -56,7 +55,7 @@ func errorWrapper(body []byte, err error) ([]byte, error) {
 }
 
 func GetField(objectApiName, filedApiName string) (interface{}, error) {
-	data, err := errorWrapper(http.GetOpenapiClient().Get(http.GetFieldUrlPath(objectApiName, filedApiName), nil, cHttp.AppTokenMiddleware, utils.TenantAndUserMiddleware))
+	data, err := errorWrapper(http.GetOpenapiClient().Get(http.GetFieldUrlPath(objectApiName, filedApiName), nil, cHttp.AppTokenMiddleware, cHttp.TenantAndUserMiddleware))
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +67,7 @@ func GetField(objectApiName, filedApiName string) (interface{}, error) {
 }
 
 func GetFields(objectApiName string) (map[string]interface{}, error) {
-	data, err := errorWrapper(http.GetOpenapiClient().Get(http.GetFieldsUrlPath(objectApiName), nil, cHttp.AppTokenMiddleware, utils.TenantAndUserMiddleware))
+	data, err := errorWrapper(http.GetOpenapiClient().Get(http.GetFieldsUrlPath(objectApiName), nil, cHttp.AppTokenMiddleware, cHttp.TenantAndUserMiddleware))
 	if err != nil {
 		return nil, err
 	}

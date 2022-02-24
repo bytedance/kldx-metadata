@@ -1,5 +1,7 @@
-package goapi_metadata
+package metadata
+
+import "github.com/bytedance/kldx-metadata/metadata"
 
 var (
-	Metadata = MetaData{}
+	Metadata = metadata.MetaData{}
 )

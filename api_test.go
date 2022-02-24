@@ -1,4 +1,4 @@
-package goapi_metadata
+package metadata
 
 import (
 	"encoding/json"
@@ -8,8 +8,13 @@ import (
 )
 
 func TestGetFields(t *testing.T) {
-	res := map[string]interface{}{}
-	err := Metadata.Object("allTypeFieldObject").GetFields(&res)
+	// 定义对应的结构，注意 tag 对应 apiName
+	type Result struct {
+		CreatedBy fields.Lookup `json:"_createdBy"`
+	}
+	// 调用接口，decode 拿到结果
+	res := Result{}
+	err := Metadata.Object("_user").GetFields(&res)
 	if err != nil {
 		panic(err)
 	}
@@ -18,8 +23,8 @@ func TestGetFields(t *testing.T) {
 }
 
 func TestGetField(t *testing.T) {
-	res := fields.Lookup{}
-	err := Metadata.Object("allTypeFieldObject").GetField("lookupType", &res)
+	res := fields.Multilingual{}
+	err := Metadata.Object("_user").GetField("_createdBy", &res)
 	if err != nil {
 		panic(err)
 	}
