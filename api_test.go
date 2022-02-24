@@ -14,7 +14,7 @@ func TestGetFields(t *testing.T) {
 	}
 	// 调用接口，decode 拿到结果
 	res := Result{}
-	err := Metadata.Object("_user").GetFields(&res)
+	err := Object("_user").GetFields(&res)
 	if err != nil {
 		panic(err)
 	}
@@ -24,7 +24,7 @@ func TestGetFields(t *testing.T) {
 
 func TestGetField(t *testing.T) {
 	res := fields.Multilingual{}
-	err := Metadata.Object("_user").GetField("_createdBy", &res)
+	err := Object("_user").GetField("_createdBy", &res)
 	if err != nil {
 		panic(err)
 	}
